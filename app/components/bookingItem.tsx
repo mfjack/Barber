@@ -7,7 +7,9 @@ const BookingItem = () => {
       <Card>
          <CardContent className="p-5 flex justify-between">
             <div className="flex flex-col gap-2">
-               <Badge className="bg-[#221c3d] text-primary hover:bg-[#221c3d] w-fit">Confirmado</Badge>
+               <Badge className="bg-[#221c3d] text-primary hover:bg-[#221c3d] w-fit">
+                  Confirmado
+               </Badge>
 
                <h2 className="font-bold">Corte de Cabelo</h2>
 
@@ -29,6 +31,6 @@ const BookingItem = () => {
          </CardContent>
       </Card>
    );
-}
+};
 
 export default BookingItem;
