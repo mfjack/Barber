@@ -6,21 +6,21 @@ import Footer from "./components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Barber",
-  description: "Agende com seu barbeiro e tenha qualidade na sua barba!",
+	title: "Barber",
+	description: "Agende com seu barbeiro e tenha qualidade na sua barba!",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="pt-BR">
-      <body className={`${inter.className} dark`}>
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="pt-BR">
+			<body className={`${inter.className} dark`}>
+				{children}
+				<Footer />
+			</body>
+		</html>
+	);
 }
