@@ -1,6 +1,8 @@
 import { db } from "@/app/lib/prisma";
 import BarbershopInfo from "./components/barbershopInfo";
 import ServiceItem from "./components/serviceItem";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 interface BarbershopDetailsPageProps {
 	params: {
@@ -9,6 +11,11 @@ interface BarbershopDetailsPageProps {
 }
 
 const BarbershopDetailsPage = async ({ params }: BarbershopDetailsPageProps) => {
+	const session = await getServerSession(authOptions);
+	if (!params.id) {
+		return null;
+	}
+
 	const barbershop = await db.barbershop.findUnique({
 		where: {
 			id: params.id,
@@ -28,7 +35,7 @@ const BarbershopDetailsPage = async ({ params }: BarbershopDetailsPageProps) => 
 
 			<div className="px-5 flex flex-col gap-3 py-6">
 				{barbershop.services.map((service) => (
-					<ServiceItem key={service.id} service={service} />
+					<ServiceItem key={service.id} service={service} isAuthenticated={!!session?.user} />
 				))}
 			</div>
 		</div>

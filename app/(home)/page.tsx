@@ -14,7 +14,7 @@ const Home = async () => {
 			<Header />
 
 			<div className="px-5 pt-5">
-				<h2 className="text-xl font-bold">Olá Jack!</h2>
+				<h2 className="text-xl font-bold">Olá</h2>
 				<p className="capitalize text-sm">
 					{format(new Date(), "EEEE',' dd ' de 'MMMM", { locale: ptBR })}
 				</p>
