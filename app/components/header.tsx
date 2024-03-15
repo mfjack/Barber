@@ -10,16 +10,16 @@ import SideMenu from "./sideMenu";
 export const Header = () => {
 	return (
 		<Card>
-			<CardContent className="p-5 flex justify-between flex-row items-center">
-				<Image src="/logo.svg" alt="Logo" width={120} height={22} />
+			<CardContent className='p-5 flex justify-between flex-row items-center'>
+				<Image src='/logo.svg' alt='Logo' width={120} height={22} />
 				<Sheet>
 					<SheetTrigger asChild>
-						<Button variant="outline" size={"icon"}>
+						<Button variant='outline' size={"icon"}>
 							<MenuIcon size={16} />
 						</Button>
 					</SheetTrigger>
 
-					<SheetContent className="p-0">
+					<SheetContent className='p-0'>
 						<SideMenu />
 					</SheetContent>
 				</Sheet>
