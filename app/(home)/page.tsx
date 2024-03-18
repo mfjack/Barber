@@ -5,9 +5,29 @@ import Search from './component/search';
 import BookingItem from '../components/bookingItem';
 import { db } from '../lib/prisma';
 import BarbershopItem from './component/barbershopItem';
+import { authOptions } from '../api/auth/[...nextauth]/route';
+import { getServerSession } from 'next-auth';
 
 const Home = async () => {
-	const barbershops = await db.barbershop.findMany({});
+	const session = await getServerSession(authOptions);
+
+	const [barbershops, confirmedBookings] = await Promise.all([
+		db.barbershop.findMany({}),
+		session?.user
+			? db.booking.findMany({
+					where: {
+						userId: (session.user as any).id,
+						date: {
+							gte: new Date(),
+						},
+					},
+					include: {
+						service: true,
+						barbershop: true,
+					},
+			  })
+			: Promise.resolve([]),
+	]);
 
 	return (
 		<>
@@ -24,10 +44,19 @@ const Home = async () => {
 				<Search />
 			</div>
 
-			{/* <div className='px-5 mt-6'>
-				<h2 className='text-xs uppercase text-gray-400 font-bold mb-3'>Agendamentos</h2>
-				<BookingItem />
-			</div> */}
+			<div className='mt-6'>
+				<h2 className='pl-5 text-xs uppercase text-gray-400 font-bold mb-3'>
+					Agendamentos
+				</h2>
+				<div className='pl-5 flex px-5 gap-3 overflow-x-auto'>
+					{confirmedBookings.map(booking => (
+						<BookingItem
+							key={booking.id}
+							booking={booking}
+						/>
+					))}
+				</div>
+			</div>
 
 			<div className='mt-6'>
 				<h2 className='text-xs px-5 uppercase text-gray-400 font-bold mb-3'>
