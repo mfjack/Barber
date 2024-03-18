@@ -1,10 +1,10 @@
-import { ptBR } from "date-fns/locale";
-import { Header } from "../components/header";
-import { format } from "date-fns";
-import Search from "./component/search";
-import BookingItem from "../components/bookingItem";
-import { db } from "../lib/prisma";
-import BarbershopItem from "./component/barbershopItem";
+import { ptBR } from 'date-fns/locale';
+import { Header } from '../components/header';
+import { format } from 'date-fns';
+import Search from './component/search';
+import BookingItem from '../components/bookingItem';
+import { db } from '../lib/prisma';
+import BarbershopItem from './component/barbershopItem';
 
 const Home = async () => {
 	const barbershops = await db.barbershop.findMany({});
@@ -24,10 +24,10 @@ const Home = async () => {
 				<Search />
 			</div>
 
-			<div className='px-5 mt-6'>
+			{/* <div className='px-5 mt-6'>
 				<h2 className='text-xs uppercase text-gray-400 font-bold mb-3'>Agendamentos</h2>
 				<BookingItem />
-			</div>
+			</div> */}
 
 			<div className='mt-6'>
 				<h2 className='text-xs px-5 uppercase text-gray-400 font-bold mb-3'>
@@ -35,7 +35,10 @@ const Home = async () => {
 				</h2>
 				<div className='flex gap-4 px-5 overflow-x-auto [&::-webkit-scrollbar]:hidden'>
 					{barbershops.map(barbershop => (
-						<BarbershopItem key={barbershop.id} barbershop={barbershop} />
+						<BarbershopItem
+							key={barbershop.id}
+							barbershop={barbershop}
+						/>
 					))}
 				</div>
 			</div>
@@ -44,7 +47,10 @@ const Home = async () => {
 				<h2 className='text-xs px-5 uppercase text-gray-400 font-bold mb-3'>Populares</h2>
 				<div className='flex gap-4 px-5 overflow-x-auto [&::-webkit-scrollbar]:hidden'>
 					{barbershops.map(barbershop => (
-						<BarbershopItem key={barbershop.id} barbershop={barbershop} />
+						<BarbershopItem
+							key={barbershop.id}
+							barbershop={barbershop}
+						/>
 					))}
 				</div>
 			</div>
