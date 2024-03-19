@@ -1,6 +1,6 @@
-"use server";
+'use server';
 
-import { db } from "@/app/lib/prisma";
+import { db } from '@/app/_lib/prisma';
 
 interface saveBookingParams {
 	barbershopId: string;

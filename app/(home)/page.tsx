@@ -3,7 +3,7 @@ import { Header } from '../components/header';
 import { format } from 'date-fns';
 import Search from './component/search';
 import BookingItem from '../components/bookingItem';
-import { db } from '../lib/prisma';
+import { db } from '../_lib/prisma';
 import BarbershopItem from './component/barbershopItem';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { getServerSession } from 'next-auth';
@@ -48,7 +48,7 @@ const Home = async () => {
 				<h2 className='pl-5 text-xs uppercase text-gray-400 font-bold mb-3'>
 					Agendamentos
 				</h2>
-				<div className='pl-5 flex px-5 gap-3 overflow-x-auto'>
+				<div className='pl-5 flex px-5 gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden'>
 					{confirmedBookings.map(booking => (
 						<BookingItem
 							key={booking.id}

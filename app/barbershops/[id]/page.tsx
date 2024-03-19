@@ -1,8 +1,8 @@
-import { db } from "@/app/lib/prisma";
-import BarbershopInfo from "./components/barbershopInfo";
-import ServiceItem from "./components/serviceItem";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { db } from '@/app/_lib/prisma';
+import BarbershopInfo from './components/barbershopInfo';
+import ServiceItem from './components/serviceItem';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 interface BarbershopDetailsPageProps {
 	params: {
