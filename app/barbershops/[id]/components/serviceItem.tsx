@@ -19,7 +19,7 @@ import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 import { generateDayTimeList } from '../helpers/hours';
-import { format, setHours, setMinutes } from 'date-fns';
+import { addDays, format, setHours, setMinutes } from 'date-fns';
 import { saveBooking } from '../action/saveBooking';
 import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
@@ -183,7 +183,7 @@ const ServiceItem = ({ service, isAuthenticated, barbershop }: ServiceItemProps)
 										selected={date}
 										onSelect={handleDateClick}
 										locale={ptBR}
-										fromDate={new Date()}
+										fromDate={addDays(new Date(), 1)}
 									/>
 
 									{/* Mostrar lista de horários apenas se alguma data estiver selecionada */}
