@@ -1,8 +1,8 @@
 import { ptBR } from 'date-fns/locale';
-import { Header } from '../components/header';
+import { Header } from '../_components/header';
 import { format } from 'date-fns';
 import Search from './component/search';
-import BookingItem from '../components/bookingItem';
+import BookingItem from '../_components/bookingItem';
 import { db } from '../_lib/prisma';
 import BarbershopItem from './component/barbershopItem';
 import { authOptions } from '../api/auth/[...nextauth]/route';

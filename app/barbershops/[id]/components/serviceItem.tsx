@@ -2,9 +2,9 @@
 
 'use client';
 
-import { Button } from '@/app/components/ui/button';
-import { Calendar } from '@/app/components/ui/calendar';
-import { Card, CardContent } from '@/app/components/ui/card';
+import { Button } from '@/app/_components/ui/button';
+import { Calendar } from '@/app/_components/ui/calendar';
+import { Card, CardContent } from '@/app/_components/ui/card';
 import {
 	Sheet,
 	SheetContent,
@@ -12,7 +12,7 @@ import {
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from '@/app/components/ui/sheet';
+} from '@/app/_components/ui/sheet';
 import { Barbershop, Booking, Service } from '@prisma/client';
 import { ptBR } from 'date-fns/locale';
 import { signIn, useSession } from 'next-auth/react';
