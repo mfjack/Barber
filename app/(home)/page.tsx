@@ -50,7 +50,7 @@ const Home = async () => {
 			</div>
 
 			<div className='px-5 mt-6'>
-				<Search />
+				<Search defaultValues={{ search: '' }} />
 			</div>
 
 			<div className='mt-6'>
