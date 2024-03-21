@@ -32,6 +32,7 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from './ui/alert-dialog';
+import BookingInfo from './bookingInfo';
 // import BookingInfo from './booking-info';
 
 interface BookingItemProps {
@@ -138,7 +139,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
 						{isBookingConfirmed ? 'Confirmado' : 'Finalizado'}
 					</Badge>
 
-					{/* <BookingInfo booking={booking} /> */}
+					<BookingInfo booking={booking} />
 
 					<SheetFooter className='flex-row gap-3 mt-6'>
 						<SheetClose asChild>
@@ -162,25 +163,19 @@ const BookingItem = ({ booking }: BookingItemProps) => {
 							</AlertDialogTrigger>
 							<AlertDialogContent className='w-[90%]'>
 								<AlertDialogHeader>
-									<AlertDialogTitle>
-										Deseja mesmo cancelar essa reserva?
-									</AlertDialogTitle>
+									<AlertDialogTitle>Deseja mesmo cancelar essa reserva?</AlertDialogTitle>
 									<AlertDialogDescription>
 										Uma vez cancelada, não será possível reverter essa ação.
 									</AlertDialogDescription>
 								</AlertDialogHeader>
 								<AlertDialogFooter className='flex-row gap-3'>
-									<AlertDialogCancel className='w-full mt-0'>
-										Voltar
-									</AlertDialogCancel>
+									<AlertDialogCancel className='w-full mt-0'>Voltar</AlertDialogCancel>
 									<AlertDialogAction
 										disabled={isDeleteLoading}
 										className='w-full'
 										onClick={handleCancelClick}
 									>
-										{isDeleteLoading && (
-											<Loader2 className='mr-2 h-4 w-4 animate-spin' />
-										)}
+										{isDeleteLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
 										Confirmar
 									</AlertDialogAction>
 								</AlertDialogFooter>
