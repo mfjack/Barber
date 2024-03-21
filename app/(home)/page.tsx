@@ -51,9 +51,7 @@ const Home = async () => {
 			<div className='mt-6'>
 				{confirmedBookings.length > 0 && (
 					<>
-						<h2 className='pl-5 text-xs uppercase text-gray-400 font-bold mb-3'>
-							Agendamentos
-						</h2>
+						<h2 className='pl-5 text-xs uppercase text-gray-400 font-bold mb-3'>Agendamentos</h2>
 
 						<div className='pl-5 flex px-5 gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden'>
 							{confirmedBookings.map(booking => (
@@ -68,15 +66,15 @@ const Home = async () => {
 			</div>
 
 			<div className='mt-6'>
-				<h2 className='text-xs px-5 uppercase text-gray-400 font-bold mb-3'>
-					Recomendados
-				</h2>
+				<h2 className='text-xs px-5 uppercase text-gray-400 font-bold mb-3'>Recomendados</h2>
 				<div className='flex gap-4 px-5 overflow-x-auto [&::-webkit-scrollbar]:hidden'>
 					{barbershops.map(barbershop => (
-						<BarbershopItem
+						<div
 							key={barbershop.id}
-							barbershop={barbershop}
-						/>
+							className='min-w-[167px] max-w-[167px]'
+						>
+							<BarbershopItem barbershop={barbershop} />
+						</div>
 					))}
 				</div>
 			</div>
@@ -85,10 +83,12 @@ const Home = async () => {
 				<h2 className='text-xs px-5 uppercase text-gray-400 font-bold mb-3'>Populares</h2>
 				<div className='flex gap-4 px-5 overflow-x-auto [&::-webkit-scrollbar]:hidden'>
 					{barbershops.map(barbershop => (
-						<BarbershopItem
+						<div
 							key={barbershop.id}
-							barbershop={barbershop}
-						/>
+							className='min-w-[167px] max-w-[167px]'
+						>
+							<BarbershopItem barbershop={barbershop} />
+						</div>
 					))}
 				</div>
 			</div>
